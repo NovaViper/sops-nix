@@ -75,6 +75,7 @@
         default = self.homeManagerModules.sops;
       };
       homeManagerModule = self.homeManagerModules.sops;
+      homeModules = self.homeManagerModules;
       darwinModules = {
         sops = ./modules/nix-darwin;
         default = self.darwinModules.sops;
@@ -101,7 +102,7 @@
             suffix-version =
               version: attrs:
               nixpkgs.lib.mapAttrs' (name: value: nixpkgs.lib.nameValuePair (name + version) value) attrs;
-            suffix-stable = suffix-version "-24_05";
+            suffix-stable = suffix-version "-25_05";
           in
           {
             home-manager = self.legacyPackages.${system}.homeConfigurations.sops.activation-script;
